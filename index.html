@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-width Iframe with Dynamic Height</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    iframe {
+      width: 100vw;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<iframe id="postframe" src="https:posttool.glitch.me" frameborder="0" allowfullscreen></iframe>
+
+<script>
+  // Dynamically set the height of the iframe based on its content
+  function setIframeHeight() {
+    var iframe = document.getElementById('postframe');
+    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+  }
+
+  // Set the initial height and add an event listener for resizing
+  window.addEventListener('resize', setIframeHeight);
+  setIframeHeight();
+</script>
+
+</body>
+</html>
